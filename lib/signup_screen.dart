@@ -2,33 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          // color: Colors.black,
-          width: 2.0,
-        ),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
       child: Scaffold(
         body: SingleChildScrollView(
           child: Center(
             child: Container(
-              width: 750.0,
+              width: 400.0,
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
                   children: [
-                    SizedBox(height: 100.0),
+                    const SizedBox(height: 100.0),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
                           width: 100.0,
                           height: 100.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: NetworkImage(
                                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZsuxUrEVyvCmLYoM5BeyNUOts2akw1RFDYw&usqp=CAU"),
@@ -39,57 +34,64 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Container(
-                      width: 250.0,
+                      width: double.infinity,
                       height: 40.0,
                       child: TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Full Name',
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Container(
-                      width: 250.0,
+                      width: double.infinity,
                       height: 40.0,
                       child: TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Container(
-                      width: 250.0,
+                      width: double.infinity,
                       height: 40.0,
                       child: TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                         ),
                         obscureText: true,
                       ),
                     ),
-                    SizedBox(height: 15.0),
+                    const SizedBox(height: 15.0),
                     Container(
-                      width: 250.0,
+                      width: double.infinity,
                       height: 40.0,
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginScreen()),
+                                builder: (context) => const LoginScreen()),
                           );
                         },
                         child: Text('Sign Up'),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 24, 100, 27),
+                          backgroundColor:
+                              const Color.fromARGB(255, 24, 100, 27),
                           foregroundColor: Colors.white,
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 18.0,
                           ),
                           shape: RoundedRectangleBorder(
@@ -98,21 +100,21 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Already have an account?"),
-                        SizedBox(width: 5.0),
+                        const Text("Already have an account?"),
+                        const SizedBox(width: 5.0),
                         TextButton(
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LoginScreen()),
+                                  builder: (context) => const LoginScreen()),
                             );
                           },
-                          child: Text('Login'),
+                          child: const Text('Login'),
                         ),
                       ],
                     ),

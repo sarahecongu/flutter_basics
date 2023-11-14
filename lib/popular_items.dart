@@ -7,7 +7,7 @@ class PopularItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Column(
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10, right: 10, bottom: 5, top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -17,7 +17,7 @@ class PopularItems extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 24, 100, 27),
+                  color: Color.fromARGB(255, 7, 25, 8),
                 ),
               ),
               Text(
@@ -37,8 +37,8 @@ class PopularItems extends StatelessWidget {
             children: [
               for (int i = 1; i < 9; i++)
                 Container(
-                  margin: EdgeInsets.all(10),
-                  padding: EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(5),
                   height: 100,
                   width: 150,
                   decoration: BoxDecoration(

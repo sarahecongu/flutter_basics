@@ -12,17 +12,15 @@ class OnboardingScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              child: Image.network(
-                "https://jungleworks.com/wp-content/uploads/2021/11/bannerGroceryImg.webp",
-                height: 250,
-              ),
+            Image.network(
+              "https://jungleworks.com/wp-content/uploads/2021/11/bannerGroceryImg.webp",
+              height: 250,
             ),
-            SizedBox(height: 20), // Added space between image and text
+            const SizedBox(height: 20),
 
             Container(
-              margin: EdgeInsets.only(top: 10), // Adjusted margin
-              child: Text(
+              margin:const EdgeInsets.only(top: 10), // Adjusted margin
+              child:const Text(
                 "Buy Fresh Groceries",
                 style: TextStyle(
                   color: Color.fromARGB(255, 24, 100, 27),
@@ -32,7 +30,7 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 20), // Added space between text and button
+            const SizedBox(height: 20), 
 
             SizedBox(
               height: 50,
@@ -41,17 +39,17 @@ class OnboardingScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
                   );
                 },
                  child: Ink(
-                  padding: EdgeInsets.symmetric(
+                  padding:const EdgeInsets.symmetric(
                       horizontal: 10, vertical: 5), // Reduced padding
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30.0),
-                    color: Color.fromARGB(255, 24, 100, 27),
+                    color: const Color.fromARGB(255, 24, 100, 27),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Get Started",
                       style: TextStyle(

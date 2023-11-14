@@ -3,110 +3,145 @@ import 'package:flutter_login/home_page.dart';
 import 'package:flutter_login/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.black,
-          width: 2.0,
-        ),
-        borderRadius: BorderRadius.circular(10.0), // Added border radius
-      ),
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Center(
-            child: Container(
-              width: 750.0,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  children: [
-                    SizedBox(height: 100.0),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZsuxUrEVyvCmLYoM5BeyNUOts2akw1RFDYw&usqp=CAU"),
-                              fit: BoxFit.cover,
-                            ),
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10.0),
-                    Container(
-                      width: 250.0,
-                      height: 40.0,
-                      child: TextFormField(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            width: 400.0,
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                const SizedBox(height: 50.0),
+                const CircleAvatar(
+                  radius: 50.0,
+                  backgroundImage: NetworkImage(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZsuxUrEVyvCmLYoM5BeyNUOts2akw1RFDYw&usqp=CAU",
+                  ),
+                ),
+                const SizedBox(height: 20.0),
+                Container(
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Username',
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          prefixIcon: const Icon(Icons.person),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 10.0),
-                    Container(
-                      width: 250.0,
-                      height: 40.0,
-                      child: TextFormField(
+                      const SizedBox(height: 10.0),
+                      TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          border: OutlineInputBorder(),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          prefixIcon: const Icon(Icons.lock),
                         ),
                         obscureText: true,
                       ),
-                    ),
-                    SizedBox(height: 15.0),
-                    Container(
-                      width: 250.0,
-                      height: 40.0,
-                      child: ElevatedButton(
-                        onPressed: () {
-                           Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
-                          );
-                        },
-                        child: const Text('Login'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 24, 100, 27),
-                          foregroundColor: Colors.white,
-                          textStyle: TextStyle(
-                            fontSize: 18.0,
+                      const SizedBox(height: 15.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: false,
+                                onChanged: (bool? value) {},
+                              ),
+                              const Text('Remember Me'),
+                            ],
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                          TextButton(
+                            onPressed: () {},
+                            child: const Text('Forgot Password?'),
                           ),
-                        ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(height: 10.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text("Don't have an account?"),
-                        const SizedBox(width: 5.0),
-                        TextButton(
+                      const SizedBox(height: 15.0),
+                      Container(
+                        width: double.infinity,
+                        child: ElevatedButton(
                           onPressed: () {
-                             Navigator.push(
+                            Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => SignUpScreen()),
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
                             );
                           },
-                          child:const Text('Register'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 24, 100, 27),
+                            foregroundColor: Colors.white,
+                            textStyle: const TextStyle(
+                              fontSize: 18.0,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                          child: const Text('Login'),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      const SizedBox(height: 10.0),
+                      const Text("----OR----"),
+                      const SizedBox(height: 10.0),
+                      const Text("Log in using"),
+                      const SizedBox(height: 10.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton.icon(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                            ),
+                            icon: const Icon(Icons.g_translate_rounded),
+                            label: const Text('Google'),
+                          ),
+                          const SizedBox(width: 10.0),
+                          ElevatedButton.icon(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                            ),
+                            icon: const Icon(Icons.facebook),
+                            label: const Text('Facebook'),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("Don't have an account?"),
+                          const SizedBox(width: 5.0),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SignUpScreen(),
+                                ),
+                              );
+                            },
+                            child: const Text('Register'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         ),
@@ -114,5 +149,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-

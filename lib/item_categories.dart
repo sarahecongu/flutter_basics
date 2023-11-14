@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login/item_page.dart';
 
 class Items extends StatelessWidget {
-  const Items({super.key});
+  Items({Key? key});
+
+  // Define a list of fruit names
+  final List<String> fruitNames = [
+    "Apples",
+    "Guavas",
+    "Watermelon",
+    "Bananas",
+    "Sours",
+    "Beet Root",
+    "Red Apples",
+    "Strawberries",
+  ];
+
+  // Define a list of fruit prices
+  final List<double> fruitPrices = [
+    1500,
+    2500,
+    3000,
+    4500,
+    5500,
+    1200,
+    3000,
+    3500,
+    4500
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10, right: 10, top: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,7 +49,7 @@ class Items extends StatelessWidget {
               Text(
                 "See All",
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
@@ -32,18 +58,18 @@ class Items extends StatelessWidget {
           ),
         ),
         GridView.count(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
-          childAspectRatio: 0.8,
+          childAspectRatio: 0.9,
           shrinkWrap: true,
           children: [
             for (int i = 1; i < 9; i++)
               Container(
-                height: 30,
-                padding: EdgeInsets.symmetric(horizontal: 5),
+                height: 20,
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -58,29 +84,67 @@ class Items extends StatelessWidget {
                 child: Column(
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ItemPage(fruitName: fruitNames[i - 1])),
+                        );
+                      },
                       child: Container(
-                        margin: EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(10),
                         child: Image.asset(
                           "images/$i.jpg",
-                          fit: BoxFit.contain,
+                          height: 90,
+                          width: 120,
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: 8),
+                      padding: const EdgeInsets.only(bottom: 8),
                       child: Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "Text tiltle",
-                          style: TextStyle(
+                          // Use i - 1 as the index
+                          fruitNames[i - 1],
+                          style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
                         ),
                       ),
-                    )
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 3),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            // Use i - 1 as the index
+                            "shs ${fruitPrices[i - 1]}",
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 24, 100, 27),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Container(
+                              padding: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 24, 100, 27),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(Icons.add_shopping_cart,
+                                  color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

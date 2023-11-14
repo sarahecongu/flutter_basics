@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key});
+  Categories({super.key});
+
+  // Define a list of category names
+  final List<String> categoryNames = [
+    "Apples",
+    "Guavas",
+    "Watermelon",
+    "Bananas",
+    "sours",
+    "Beet root",
+    "red apples",
+    "Straw Berries",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +51,8 @@ class Categories extends StatelessWidget {
             children: [
               for (int i = 1; i < 9; i++)
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   height: 50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -55,19 +68,19 @@ class Categories extends StatelessWidget {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         child: Image.asset(
                           "images/$i.jpg",
                           height: 50,
                           width: 50,
                         ),
                       ),
-// padding
                       Padding(
-                        padding: EdgeInsets.only(right: 5),
+                        padding: const EdgeInsets.only(right: 5),
                         child: Text(
-                          "category",
-                          style: TextStyle(
+                          // Use i - 1 as the index
+                          categoryNames[i - 1],
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
